@@ -1,7 +1,7 @@
 {
-  "name": "fluxapp",
+  "name": "React.js Search",
   "version": "1.0.0",
-  "description": "Application built with Flux and React.js",
+  "description": "Application built with React.js, Flux and the DuckDuckGo API",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

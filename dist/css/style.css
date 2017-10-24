@@ -1,0 +1,21 @@
+  body{
+  background: url(starry-sky.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+}
+
+.content{
+	color:gold;	
+}
+
+a{
+	color:white;
+	padding-right: 10px;
+}
+
+.form-group{
+	color:black;
+}
