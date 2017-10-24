@@ -6,15 +6,21 @@ var AppAPI = require('../utils/AppAPI.js');
 
 var CHANGE_EVENT = 'change';
 
-var _items = [];
+var _results = [];
 var _searchText = '';
 
 var AppStore = assign({}, EventEmitter.prototype, {
 	setSearchText: function(search){
 		_searchText = search.text;
 	},
+	getSearchText: function(){
+		return _searchText;
+	},
 	setResults: function(results){
 		_results = results;
+	},
+	getResults: function(){
+		return _results;
 	},
 	emitChange: function(){
 		this.emit(CHANGE_EVENT);
@@ -36,6 +42,7 @@ AppDispatcher.register(function(payload){
 			AppStore.setSearchText(action.search);
 			AppStore.emit(CHANGE_EVENT);
 			break;
+
 		case AppConstants.RECEIVE_RESULTS:
 			AppStore.setResults(action.results);
 			AppStore.emit(CHANGE_EVENT);
