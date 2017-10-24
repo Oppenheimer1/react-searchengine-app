@@ -28,6 +28,7 @@ var App = React.createClass({
 		return(
 			<div>
 				<SearchForm />
+				//lets us access the results from within the components as a property
 				<SearchResults searchText = {this.state.searchText} results={this.state.results} />
 			</div>
 		);
