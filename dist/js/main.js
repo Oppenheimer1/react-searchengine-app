@@ -19772,7 +19772,7 @@ var AppActions = {
 			search: search
 		})
 	},
-
+	//sets an action call to receive the results
 	receiveResults: function(results){
 		AppDispatcher.handleViewAction({
 			actionType: AppConstants.RECEIVE_RESULTS,
@@ -19856,7 +19856,7 @@ var SearchForm = React.createClass({displayName: "SearchForm",
 			React.createElement("div", null, 
 				React.createElement("form", {onSubmit: this.searchText, className: "well"}, 
 					React.createElement("div", {className: "form-group"}, 
-						React.createElement("label", null, "Search For Something..."), 
+						React.createElement("label", null, "Type Your Search Here"), 
 						React.createElement("input", {type: "text", className: "form-control", ref: "text"})
 					)
 				)
@@ -19984,8 +19984,8 @@ AppDispatcher.register(function(payload){
 
 	switch(action.actionType){
 		case AppConstants.SEARCH_TEXT:
-			AppAPI.searchText(action.search);
-			AppStore.setSearchText(action.search);
+			AppAPI.searchText(action.search);//interacts with the API
+			AppStore.setSearchText(action.search);//sets a state for what the user types in
 			AppStore.emit(CHANGE_EVENT);
 			break;
 
@@ -20006,10 +20006,13 @@ var AppActions = require('../actions/AppActions');
 module.exports = {
 	searchText: function(search){
 		console.log('API searching for '+search.text);
+		/*setting the API to a variable called url and sets the format to json 
+		and setting the pretty variable = 1 makes the json format look nice*/
 		var url = 'http://api.duckduckgo.com/?q='+search.text+'&format=json&pretty=1';
+		//ajax call
 		$.ajax({
 			url: url,
-			dataType: 'jsonp',
+			dataType: 'jsonp', //using jsonp here stops domain script errors
 			cache: false,
 			success: function(data){
 				AppActions.receiveResults(data.RelatedTopics);
@@ -20027,10 +20030,13 @@ var AppActions = require('../actions/AppActions');
 module.exports = {
 	searchText: function(search){
 		console.log('API searching for '+search.text);
+		/*setting the API to a variable called url and sets the format to json 
+		and setting the pretty variable = 1 makes the json format look nice*/
 		var url = 'http://api.duckduckgo.com/?q='+search.text+'&format=json&pretty=1';
+		//ajax call
 		$.ajax({
 			url: url,
-			dataType: 'jsonp',
+			dataType: 'jsonp', //using jsonp here stops domain script errors
 			cache: false,
 			success: function(data){
 				AppActions.receiveResults(data.RelatedTopics);

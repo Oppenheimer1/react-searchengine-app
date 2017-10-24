@@ -38,8 +38,8 @@ AppDispatcher.register(function(payload){
 
 	switch(action.actionType){
 		case AppConstants.SEARCH_TEXT:
-			AppAPI.searchText(action.search);
-			AppStore.setSearchText(action.search);
+			AppAPI.searchText(action.search);//interacts with the API
+			AppStore.setSearchText(action.search);//sets a state for what the user types in
 			AppStore.emit(CHANGE_EVENT);
 			break;
 

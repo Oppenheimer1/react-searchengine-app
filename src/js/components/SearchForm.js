@@ -8,7 +8,7 @@ var SearchForm = React.createClass({
 			<div>
 				<form onSubmit={this.searchText} className="well">
 					<div className="form-group">
-						<label>Search For Something...</label>
+						<label>Type Your Search Here</label>
 						<input type="text" className="form-control" ref="text" />
 					</div>
 				</form>

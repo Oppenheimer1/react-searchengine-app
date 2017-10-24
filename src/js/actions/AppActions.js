@@ -8,7 +8,7 @@ var AppActions = {
 			search: search
 		})
 	},
-
+	//sets an action call to receive the results
 	receiveResults: function(results){
 		AppDispatcher.handleViewAction({
 			actionType: AppConstants.RECEIVE_RESULTS,
