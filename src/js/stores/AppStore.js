@@ -13,6 +13,9 @@ var AppStore = assign({}, EventEmitter.prototype, {
 	setSearchText: function(search){
 		_searchText = search.text;
 	},
+	setResults: function(results){
+		_results = results;
+	},
 	emitChange: function(){
 		this.emit(CHANGE_EVENT);
 	},
@@ -34,8 +37,7 @@ AppDispatcher.register(function(payload){
 			AppStore.emit(CHANGE_EVENT);
 			break;
 		case AppConstants.RECEIVE_RESULTS:
-			AppAPI.searchText(action.search);
-			AppStore.setSearchText(action.search);
+			AppStore.setResults(action.results);
 			AppStore.emit(CHANGE_EVENT);
 			break;
 	}

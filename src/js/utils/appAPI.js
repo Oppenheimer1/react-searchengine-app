@@ -11,7 +11,7 @@ module.exports = {
 			success: function(data){
 				AppActions.receiveResults(data.RelatedTopics);
 			}.bind(this),
-			error: function(xhr, status, err{
+			error: function(xhr, status, err){
 				console.log(err);
 			}.bind(this)
 		});
